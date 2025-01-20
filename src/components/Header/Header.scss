@@ -1,0 +1,233 @@
+.header {
+  padding: 0 100px;
+  position: relative;
+  z-index: 1;
+  margin: 105px 0;
+  @media (max-width: 426px) {
+    margin: 70px 0;
+    padding: 0;
+  }
+
+  li {
+    width: fit-content;
+    list-style-type: none;
+  }
+
+  &__logo {
+    margin-left: 64px;
+    margin-right: 64px;
+    justify-content: start;
+
+    @media (max-width: 426px) {
+      position: relative;
+      left: 107px;
+      top: -16px;
+    }
+  }
+
+  &__points {
+    flex-direction: row;
+    // padding-left: 262px;
+    align-items: center;
+    background-color: transparent;
+    max-height: 156px;
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+
+    @media (max-width: 426px) {
+      position: absolute;
+      top: 0;
+      left: -100%;
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      position: absolute;
+      top: 0;
+      left: -100%;
+    }
+  }
+
+  &__point {
+    font-family: "AC Line";
+    font-weight: 400;
+    text-decoration: none;
+    color: white;
+    font-size: 22px;
+    margin-right: 52px;
+    text-align: center;
+    // border-radius: 36px;
+    padding: 7px 18px;
+    margin-right: 52px;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    transition: 0.5s;
+    cursor: pointer;
+  }
+
+  li span {
+    position: absolute;
+    display: block;
+  }
+
+  li span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #fff);
+  }
+
+  li:hover span:nth-child(1) {
+    left: 100%;
+    transition: 1s;
+  }
+
+  li span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #fff);
+  }
+
+  li:hover span:nth-child(3) {
+    right: 100%;
+    transition: 1s;
+    transition-delay: 0.5s;
+  }
+
+  li span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #fff);
+  }
+
+  li:hover span:nth-child(2) {
+    top: 100%;
+    transition: 1s;
+    transition-delay: 0.25s;
+  }
+
+  li span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #fff);
+  }
+
+  li:hover span:nth-child(4) {
+    bottom: 100%;
+    transition: 1s;
+    transition-delay: 0.75s;
+  }
+
+  a,
+  a.active {
+    color: white;
+  }
+}
+
+.menu {
+  justify-content: space-between;
+  flex-direction: row;
+  // padding-left: 262px;
+  background-color: transparent;
+  max-height: 156px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  transform: translateY(50px);
+  filter: blur(18px);
+  opacity: 0;
+  animation: ShowTitles 0.5s 1s linear forwards;
+  position: relative;
+  bottom: 70px;
+
+  li {
+    a {
+      text-decoration: none;
+    }
+  }
+
+  @keyframes ShowTitles {
+    to {
+      opacity: 1;
+      filter: blur(0);
+      opacity: 1;
+      transform: rotateY(0);
+    }
+  }
+  &__points {
+    display: flex;
+    flex-direction: row;
+    gap: 120px;
+    align-items: center;
+    display: none;
+    @media (max-width: 426px) {
+      position: absolute;
+      top: 0;
+      left: -100%;
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      position: absolute;
+      top: 0;
+      left: -100%;
+    }
+  }
+
+  &__point {
+    font-family: "AC Line";
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 24px;
+    color: white;
+  }
+
+  &__burger-icon {
+    display: none;
+    position: relative;
+    z-index: 5;
+    cursor: pointer;
+    flex-direction: column;
+    @media (max-width: 426px) {
+      display: flex;
+      margin-left: 80%;
+      top: 27px;
+    }
+  }
+
+  &__burger-line {
+    height: 3px;
+    width: 35px;
+    border-radius: 5px;
+    background: #fff;
+    margin: 4px 0;
+    transition: all 0.5s ease;
+  }
+
+  .menu.active {
+    display: flex;
+  }
+
+  .menu__burger-icon.active .menu__burger-line:nth-child(1) {
+    transform: rotate(45deg);
+    transform-origin: 1px;
+  }
+
+  .menu__burger-icon.active .menu__burger-line:nth-child(2) {
+    transform: scale(0);
+  }
+
+  .menu__burger-icon.active .menu__burger-line:nth-child(3) {
+    transform: rotate(-45deg);
+    transform-origin: 1px;
+  }
+}

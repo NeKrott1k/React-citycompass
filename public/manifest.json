@@ -1,0 +1,21 @@
+{
+  "name": "My Awesome App",
+  "short_name": "AwesomeApp",
+  "icons": [
+    {
+      "src": "icon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "icon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/index.html",
+  "background_color": "#ffffff",
+  "theme_color": "#2196f3",
+  "display": "standalone",
+  "orientation": "portrait"
+}

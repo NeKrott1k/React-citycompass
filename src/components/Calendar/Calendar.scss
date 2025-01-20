@@ -1,0 +1,150 @@
+$bg_color: #051f20;
+$title_color: #cbf2c6;
+$icon_color: #97bf8d;
+
+.calend {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 90px;
+  margin-top: 140px;
+
+  &__btns {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    gap: 40px;
+  }
+
+  &__button {
+    font-family: "AC Line";
+    font-size: 90px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    transition: 0.3s linear;
+  }
+
+  &__button:hover {
+    transform: translateY(-10px);
+  }
+
+  &__container {
+    display: inline-block;
+    border-radius: 40px;
+    overflow: hidden;
+    position: relative;
+    background-color: $bg_color;
+    transition: 0.5s;
+    padding-left: 30px;
+  }
+
+  &__container:hover {
+    box-shadow: 0px 0px 35px #ffffffb5;
+  }
+
+  &__month {
+    text-align: center;
+    color: white;
+    padding-top: 50px;
+    font-family: "Neutral Face";
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 25px;
+
+    @media (max-width: 426px) {
+      font-size: 17px;
+      padding-top: 40px;
+    }
+  }
+
+  &__days-of-week {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__weekdays {
+    font-family: "AC Line";
+    font-weight: 400;
+    font-size: 40px;
+    color: white;
+    padding: 30px 55px;
+
+    @media (max-width: 426px) {
+      padding: 15px;
+      font-size: 20px;
+    }
+  }
+
+  &__weekend {
+    font-family: "AC Line";
+    font-weight: 400;
+    font-size: 40px;
+    color: #62925e;
+    padding: 30px 55px;
+
+    @media (max-width: 426px) {
+      padding: 15px;
+      font-size: 20px;
+    }
+  }
+
+  &__days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding-top: 30px;
+  }
+
+  &__day {
+    padding: 20px;
+    width: 150px;
+    height: 80px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition:
+      transform 0.3s,
+      box-shadow 0.3s;
+    position: relative;
+    font-family: "AC Line";
+    font-weight: 400;
+    font-size: 40px;
+    color: white;
+
+    @media (max-width: 426px) {
+      padding: 7px;
+      width: 50px;
+      font-size: 14px;
+      height: 40px;
+    }
+  }
+
+  &__event {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "AC Line";
+    font-weight: 400;
+    font-size: 20px;
+    color: $title_color;
+    transition: opacity 0.3s;
+    opacity: 0;
+    visibility: hidden;
+
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}

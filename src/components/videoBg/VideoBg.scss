@@ -1,0 +1,10 @@
+#myVideo {
+  position: fixed; /* Фиксируем видео на фоне */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover; /* Видео заполняет весь контейнер */
+  z-index: -1; /* Видео находится под контентом */
+  opacity: 0.5;
+}

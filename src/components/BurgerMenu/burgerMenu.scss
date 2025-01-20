@@ -1,0 +1,47 @@
+.menu-burger {
+  float: right;
+  text-align: right;
+  width: 300px;
+  height: 250px;
+  background-color: #62925e;
+  border-radius: 12px;
+  padding: 37px 20px;
+  position: absolute;
+  left: 100px;
+  z-index: 5;
+  transition: all 0.5s ease-in-out;
+  display: none;
+
+  &__li {
+    font-family: "AC Line";
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 26px;
+    color: white;
+    cursor: pointer;
+  }
+
+  &__li:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  &__points {
+    text-align: right;
+    align-items: end;
+    width: 100%;
+    gap: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &.active {
+    display: flex;
+  }
+
+  a,
+  a.active {
+    color: white;
+    text-decoration: none;
+  }
+}
