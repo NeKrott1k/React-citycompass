@@ -5,7 +5,7 @@ import phone from "../img/phone.svg"
 import vetka from "../img/vetka.png"
 import leaves from "../img/leaves.png"
 import arrow from "../img/Arrow 5.svg"
-import Modal from "../components/Modal/Modal"
+import Modal from "../components/Modal/Modal.js"
 
 import { useState } from "react"
 import React from "react"

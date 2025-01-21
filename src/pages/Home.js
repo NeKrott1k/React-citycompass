@@ -1,11 +1,13 @@
-import { NavLink } from "react-router-dom"
 import "../styles/App.scss"
 import slide1 from "../img/1-slide.png"
 import slide2 from "../img/2-slide.png"
 import slide3 from "../img/3-slide.png"
 import slide4 from "../img/4-slide.png"
+
+import { NavLink } from "react-router-dom"
 import { useState } from "react"
-import Calendar from "../components/Calendar/Calendar"
+
+import Calendar from "../components/Calendar/Calendar.js"
 import React from "react"
 const Home = () => {
   const imageUrls = [slide1, slide2, slide3, slide4]

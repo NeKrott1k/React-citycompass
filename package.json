@@ -1,16 +1,13 @@
 {
-  "name": "citycompass",
   "homepage": "https://nekrott1k.github.io/citycompass_react/",
   "version": "0.1.0",
+  "type": "module",
   "private": true,
   "dependencies": {
     "@tanstack/react-query": "^5.64.1",
     "@tanstack/react-query-devtools": "^5.64.1",
     "axios": "^1.7.9",
-    "cra-template": "1.2.0",
-    "eslint": "^8.57.1",
     "eslint-config-react-app": "^7.0.1",
-    "eslint-plugin-prettier": "^5.2.3",
     "gh-pages": "^6.3.0",
     "pre-commit": "^1.2.2",
     "react": "^19.0.0",
@@ -29,13 +26,14 @@
     "eject": "react-scripts eject",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "format": "prettier --write .",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,scss,json}\"",
     "prepare": "echo 'Husky setup complete'"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
     ]
   },
   "browserslist": {
@@ -52,9 +50,15 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.18.0",
+    "@typescript-eslint/eslint-plugin": "^8.21.0",
+    "@typescript-eslint/parser": "^8.21.0",
+    "eslint": "^9.18.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.3",
     "eslint-plugin-react": "^7.37.4",
     "globals": "^15.14.0",
     "husky": "^8.0.3",
+    "lint-staged": "^15.4.1",
     "prettier": "^3.4.2",
     "sass": "^1.83.1",
     "typescript": "^5.7.3",

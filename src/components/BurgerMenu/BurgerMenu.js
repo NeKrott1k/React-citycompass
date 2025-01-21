@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import "./burgerMenu.scss"
 import { NavLink } from "react-router-dom"
-import { menuContext } from "../menuContext/menuContext"
+import { menuContext } from "../menuContext/menuContext.js"
 import React from "react"
 const BurgerMenu = () => {
   const { isMenuOpen } = useContext(menuContext)

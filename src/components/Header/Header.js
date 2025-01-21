@@ -2,7 +2,7 @@ import logo from "./img/logo.svg"
 import "./Header.scss"
 
 import { NavLink } from "react-router-dom"
-import { menuContext } from "../menuContext/menuContext"
+import { menuContext } from "../menuContext/menuContext.js"
 import { useContext } from "react"
 import React from "react"
 const Header = () => {

@@ -1,11 +1,15 @@
-import { useState, useContext, React } from "react"
 import arrow from "../img/Arrow.svg"
+import Loader from "../components/Loader/Loader.js"
+
+import { useState, useContext, React } from "react"
 import { useParams, NavLink } from "react-router-dom"
 import { useQuery, useQueryClient } from "@tanstack/react-query"
-import Loader from "../components/Loader/Loader"
-import { menuContext } from "../components/menuContext/menuContext"
+import { menuContext } from "../components/menuContext/menuContext.js"
+
 import axios from "axios"
+
 const reviewUrl = "https://67319f907aaf2a9aff113edb.mockapi.io/"
+
 const Attraction_dop = () => {
   const { id } = useParams()
   const [buttonState, setButtonState] = useState("")
@@ -16,44 +20,22 @@ const Attraction_dop = () => {
   const [userName, setUserName] = useState("")
   const [userEmail, setUserEmail] = useState("")
   const [currentIndexImg, setCurrentIndexImg] = useState(0)
-  const [review, setReview] = useState("")
   const queryClient = useQueryClient()
-
-  // useEffect(() => {
-  //     const fetchAttraction = async() => {
-  //         try {
-  //             const response = await fetch(`${baseUrl}/${id}`)
-  //             if (!response.ok) {
-  //                 throw new Error(`HTTP error! status: ${response.status}`)
-  //             }
-  //             const data = await response.json()
-  //             setAttraction(data)
-
-  //         } catch(error) {
-  //             console.error('Ошибка', error)
-  //         } finally {
-  //             setLoading(false)
-  //         }
-  //     }
-  //     fetchAttraction()
-  // }, [id])
 
   const fetchAttractions = async ({ queryKey }) => {
     const [
-      _key,
+      ,
       id,
       baseUrl = "https://67319f907aaf2a9aff113edb.mockapi.io/attraction",
     ] = queryKey
+
     const response = await axios.get(`${baseUrl}/${id}`)
     return response.data
   }
 
   const fetchReviews = async ({ queryKey }) => {
-    const [
-      _key,
-      id,
-      reviewUrl = "https://67319f907aaf2a9aff113edb.mockapi.io/",
-    ] = queryKey
+    const [, id, reviewUrl = "https://67319f907aaf2a9aff113edb.mockapi.io/"] =
+      queryKey
     const response = await axios.get(`${reviewUrl}/reviews?attraction_id=${id}`)
     return response.data
   }
@@ -84,19 +66,6 @@ const Attraction_dop = () => {
     attractions?.image_for_page2 || "",
     attractions?.image_for_page3 || "",
   ].filter((url) => url)
-
-  // useEffect(() => {
-  //     const fetchReviews = async() => {
-  //         try {
-  //             const response = await axios.get(`${reviewUrl}/reviews?attraction_id=${id}`)
-  //             setReviews(response.data)
-  //         } catch (error) {
-  //             console.error('Ошибка с отзывами', error)
-  //         }
-  //     }
-
-  //     fetchReviews()
-  // }, [id])
 
   if (isLoading) {
     return <Loader />
@@ -143,7 +112,7 @@ const Attraction_dop = () => {
           id: response.data.id,
         },
       ]
-      // setReview((prevReviews) => [...prevReviews, {...newReview, id:response.data.id}])
+      queryClient.setQueryData(["reviews", id], updatedReviews)
       setSelectedRating(0)
       setReviewText("")
       setUserEmail("")

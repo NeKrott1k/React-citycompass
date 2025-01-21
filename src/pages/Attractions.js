@@ -1,6 +1,6 @@
 import "../styles/Attractions.scss"
-import useInput from "../hooks/useInput"
-import Loader from "../components/Loader/Loader"
+import useInput from "../hooks/useInput.js"
+import Loader from "../components/Loader/Loader.js"
 import arrow1 from "../img/Arrow.svg"
 import React from "react"
 import { useState } from "react"
