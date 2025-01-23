@@ -1,5 +1,4 @@
 {
-  "homepage": "https://nekrott1k.github.io/citycompass_react/",
   "version": "0.1.0",
   "type": "module",
   "private": true,
@@ -9,6 +8,7 @@
     "axios": "^1.7.9",
     "eslint-config-react-app": "^7.0.1",
     "gh-pages": "^6.3.0",
+    "ky": "^1.7.4",
     "pre-commit": "^1.2.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

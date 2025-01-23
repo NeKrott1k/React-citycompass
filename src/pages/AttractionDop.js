@@ -49,7 +49,7 @@ const Attraction_dop = () => {
     queryKey: ["attractions", id],
     queryFn: fetchAttractions,
     keepPreviousData: true,
-    staleTime: 1000 * 60 * 5,
+    staleTime: 30_000,
     cacheTime: 1000 * 60 * 60,
   })
 
@@ -57,7 +57,7 @@ const Attraction_dop = () => {
     queryKey: ["reviews", id],
     queryFn: fetchReviews,
     keepPreviousData: true,
-    staleTime: 1000 * 60 * 5,
+    staleTime: 30_000,
     cacheTime: 1000 * 60 * 60,
   })
 
@@ -127,28 +127,73 @@ const Attraction_dop = () => {
     if (reviews.length === 0) {
       return <p>Отзывов пока нет. Будьте первым!</p>
     } else {
-      return reviews.map((review) => {
-        return (
-          <div key={review.id} className="review">
-            <p>
-              <strong>Оценка:</strong> {review.rating} ★
-            </p>
-            <p>
-              <strong>Имя:</strong> {review.user}
-            </p>
-            <p>
-              <strong>Email:</strong> {review.email}
-            </p>
-            <p>
-              <strong>Отзыв:</strong> {review.text}
-            </p>
-            <button onClick={() => handleDeleteReview(review.id)}>
-              Удалить
-            </button>
-            <hr />
-          </div>
-        )
-      })
+      return (
+        <div
+          id="reviews-container"
+          style={{
+            flexWrap: "wrap",
+            display: "flex",
+            gap: "50px",
+            marginTop: "3vw",
+            flexDirection: "column",
+            width: "70vw",
+          }}
+        >
+          {reviews.map((review) => (
+            <div
+              key={review.id}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                textAlign: "left",
+                gap: "10px",
+                backgroundColor: "#1a2e1a",
+                padding: "20px",
+                borderRadius: "10px",
+                borderLeft: "5px solid #4caf50",
+              }}
+            >
+              <p
+                style={{
+                  color: "#4caf50",
+                  fontSize: "18px",
+                  fontWeight: "bold",
+                }}
+              >
+                <strong>{review.user}:</strong>
+              </p>
+              <p style={{ color: "#e0f7fa", fontSize: "16px" }}>
+                {review.email}
+              </p>
+              <p style={{ color: "#e0f7fa", fontSize: "16px" }}>
+                <strong>Отзыв:</strong> {review.text}
+              </p>
+              <button
+                onClick={() => handleDeleteReview(review.id)}
+                style={{
+                  width: "fit-content",
+                  backgroundColor: "#ff4d4d",
+                  color: "white",
+                  border: "none",
+                  padding: "8px 16px",
+                  borderRadius: "5px",
+                  cursor: "pointer",
+                  fontSize: "14px",
+                  marginTop: "10px",
+                  transition: "background-color 0.3s ease",
+                }}
+                onMouseOver={(e) =>
+                  (e.target.style.backgroundColor = "#cc0000")
+                }
+                onMouseOut={(e) => (e.target.style.backgroundColor = "#ff4d4d")}
+              >
+                Удалить
+              </button>
+              <hr style={{ borderColor: "#4caf50", marginTop: "20px" }} />
+            </div>
+          ))}
+        </div>
+      )
     }
   }
 
@@ -299,5 +344,4 @@ const Attraction_dop = () => {
     </>
   )
 }
-
 export default Attraction_dop

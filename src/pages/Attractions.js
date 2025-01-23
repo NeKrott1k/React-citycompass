@@ -7,32 +7,26 @@ import { useState } from "react"
 import { useQuery } from "@tanstack/react-query"
 import { useNavigate } from "react-router-dom"
 
+import axios from "axios"
+
 const Attractions = () => {
   const navigate = useNavigate()
-  const input = useInput()
+  const { value, setValue } = useInput("")
   const [isActive, setIsActive] = useState(false)
   const [pageCount, setPageCount] = useState(1)
   const [isSorted, setIsSorted] = useState(false)
   const [selectedCategory, setSelectedCategory] = useState("")
   const [hasMore, setHasMore] = useState(true)
-  const itemsPerPage = 10
+  const [itemsPerPage, setItemsPerPage] = useState(10)
+  const [allAttractions, setAllAttractions] = useState([])
 
   const fetchAttactions = async ({ queryKey }) => {
-    const [
-      _key,
-      pageCount,
-      isSorted,
-      selectedCategory,
-      itemsPerPage,
-      baseUrl = "https://67319f907aaf2a9aff113edb.mockapi.io/attraction",
-    ] = queryKey
-    const response = await fetch(
+    const [_key, pageCount, isSorted, selectedCategory, itemsPerPage] = queryKey
+    const baseUrl = "https://67319f907aaf2a9aff113edb.mockapi.io/attraction"
+    const response = await axios.get(
       `${baseUrl}?page=${pageCount}&limit=${itemsPerPage}${isSorted ? "&sortBy=name_place" : ""}${selectedCategory ? `&search=${selectedCategory}` : ""}`,
     )
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`)
-    }
-    return response.json()
+    return response.data
   }
 
   const {
@@ -41,6 +35,7 @@ const Attractions = () => {
     isError,
     error,
     isFetching,
+    isSuccess,
   } = useQuery({
     queryKey: [
       "attractions",
@@ -51,7 +46,7 @@ const Attractions = () => {
     ],
     queryFn: fetchAttactions,
     keepPreviousData: true,
-    staleTime: 360_000,
+    staleTime: 60_000,
   })
 
   const handleCardClick = (id) => {
@@ -60,12 +55,6 @@ const Attractions = () => {
 
   const handleClick = () => {
     setIsActive(!isActive)
-  }
-
-  const handleShowMore = () => {
-    if (hasMore) {
-      setPageCount((prevPageCount) => prevPageCount + 1)
-    }
   }
 
   const handleSort = () => {
@@ -84,13 +73,21 @@ const Attractions = () => {
     if (pageCount > 1) {
       setPageCount((prevPageCount) => prevPageCount - 1)
     }
-    if (pageCount === 1) {
-      setPageCount(1)
-    }
   }
 
   const handleNextPage = () => {
-    setPageCount((prevPageCount) => prevPageCount + 1)
+    if (attractions.length > 0) {
+      setPageCount((prevPageCount) => prevPageCount + 1)
+    }
+    if (pageCount > attractions.length) {
+      setHasMore(false)
+    }
+  }
+
+  const handleShowMore = () => {
+    if (hasMore) {
+      setItemsPerPage((prevPageCount) => prevPageCount + prevPageCount)
+    }
   }
 
   if (isError) {
@@ -104,7 +101,7 @@ const Attractions = () => {
         <h2 className="first_screen__title2">(интересные места)</h2>
       </div>
       {isLoading && <Loader />}
-      {!isLoading && attractions.length > 0 && (
+      {!isLoading && attractions && attractions.length > 0 && (
         <>
           <div className="first_screen__search-and-filter">
             <div
@@ -120,11 +117,16 @@ const Attractions = () => {
                 <input
                   type="text"
                   className="first_screen__search-input"
-                  {...input}
+                  value={value}
+                  onChange={(e) => setValue(e.target.value)}
                   placeholder="Поиск..."
                 />
               </form>
-              <span className="first_screen__clear" id="search-clear"></span>
+              <span
+                className="first_screen__clear"
+                id="search-clear"
+                onClick={() => setValue("")}
+              ></span>
             </div>
 
             <div className="first_screen__filter-container">
@@ -138,9 +140,13 @@ const Attractions = () => {
                     onChange={handleFilter}
                   >
                     <option value="">Все</option>
-                    {attractions.map((attraction) => (
-                      <option value={attraction.category}>
-                        {attraction.category}
+                    {[
+                      ...new Set(
+                        attractions.map((attraction) => attraction?.category),
+                      ),
+                    ].map((category) => (
+                      <option key={category} value={category}>
+                        {category}
                       </option>
                     ))}
                   </select>
@@ -160,32 +166,23 @@ const Attractions = () => {
           <div id="cards-container">
             {attractions
               .filter((attraction) => {
-                return attraction.name_place && attraction.imageURL
+                return attraction?.name_place && attraction?.imageURL
               })
               .filter((attraction) => {
                 const name = attraction.name_place || ""
-                const searchValue = input.value || ""
+                const searchValue = value || ""
                 return name.toLowerCase().includes(searchValue.toLowerCase())
               })
               .map((attraction) => (
                 <div
                   key={attraction.id}
                   className="first_screen__card"
-                  onClick={
-                    !isLoading
-                      ? () => handleCardClick(attraction.id)
-                      : undefined
-                  }
+                  onClick={() => handleCardClick(attraction.id)}
                 >
                   <img
                     className="first_screen__cards-img"
                     src={attraction.imageURL}
                     alt={attraction.name_place}
-                    onClick={
-                      !isLoading
-                        ? () => handleCardClick(attraction.id)
-                        : undefined
-                    }
                   />
                   <div className="first_screen__info">
                     <h4 className="first_screen__card-title">
@@ -206,20 +203,24 @@ const Attractions = () => {
       <div className="first_screen__paginations">
         <button
           onClick={handleShowMore}
-          disabled={!hasMore || isFetching}
+          disabled={!hasMore || isLoading}
           id="show-more"
         >
           Показать больше
         </button>
         <div className="first_screen__pagination">
-          <button id="prev-page" onClick={handlePrevPage}>
+          <button
+            id="prev-page"
+            onClick={handlePrevPage}
+            disabled={pageCount === 1 || isLoading}
+          >
             ←
           </button>
           <span id="current-page">{pageCount}</span>
           <button
             id="next-page"
             onClick={handleNextPage}
-            disabled={!hasMore || isFetching}
+            disabled={!hasMore || isLoading}
           >
             →
           </button>
