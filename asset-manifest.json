@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/static/css/main.8e6ca764.css",
+    "main.js": "/static/js/main.145dc789.js",
+    "static/js/488.2c2c4401.chunk.js": "/static/js/488.2c2c4401.chunk.js",
+    "static/media/animate-bg.mp4": "/static/media/animate-bg.ecac8e59b55647886a81.mp4",
+    "static/media/4-slide.png": "/static/media/4-slide.993da7a850cbb51b5667.png",
+    "static/media/2-slide.png": "/static/media/2-slide.3db9be70adc57cb62f18.png",
+    "static/media/3-slide.png": "/static/media/3-slide.7f5ac6ce98424652bcb1.png",
+    "static/media/1-slide.png": "/static/media/1-slide.e0bc05aaa34d582779d8.png",
+    "static/media/vetka.png": "/static/media/vetka.93f2613128f648e8f8fb.png",
+    "static/media/rozoviichulok-regular.woff2": "/static/media/rozoviichulok-regular.c8fbdfd1a454b3b4cc97.woff2",
+    "static/media/leaves.png": "/static/media/leaves.f51e71757dda162dd385.png",
+    "static/media/rozoviichulok-regular.ttf": "/static/media/rozoviichulok-regular.2782bdd425395dfb88b6.ttf",
+    "static/media/ACLine.woff2": "/static/media/ACLine.76e9fa50ba66b3033fc3.woff2",
+    "static/media/ACLine.ttf": "/static/media/ACLine.d4ad184c0eddc5789ea2.ttf",
+    "static/media/logo.svg": "/static/media/logo.afbf36e9103b40ebecdd63725f3add44.svg",
+    "static/media/NeutralFace-regular.woff2": "/static/media/NeutralFace-regular.ef895c60956795cb2ccd.woff2",
+    "static/media/NeutralFace-Bold.woff2": "/static/media/NeutralFace-Bold.308fb8b187f6779ed67c.woff2",
+    "static/media/NeutralFace-regular.ttf": "/static/media/NeutralFace-regular.dd8e0395cd81046f296d.ttf",
+    "static/media/NeutralFace-Bold.ttf": "/static/media/NeutralFace-Bold.72f576ae0590dee8ead7.ttf",
+    "static/media/phone.svg": "/static/media/phone.4208536a9f27b4af55adb9251acd47d0.svg",
+    "static/media/ds logo.svg": "/static/media/ds logo.30373e5d7f1d61b3a3c65e828ace4b86.svg",
+    "static/media/ds.svg": "/static/media/ds.30373e5d7f1d61b3a3c6.svg",
+    "static/media/location.svg": "/static/media/location.8540c8671515b6c3eb6aefe852a4156e.svg",
+    "static/media/tg logo.svg": "/static/media/tg logo.18570aeff4cee3884a9fb9ee8f6cd154.svg",
+    "index.html": "/index.html",
+    "static/media/Arrow.svg": "/static/media/Arrow.6015c85ea50c3f966d0d919298cc7c93.svg",
+    "static/media/Arrow 5.svg": "/static/media/Arrow 5.e118ef6e9ab259a4317a1ca2168e56c4.svg",
+    "static/media/vk logo.svg": "/static/media/vk logo.4b8b1be78709ac35bfbd3e6e8f4c6799.svg",
+    "main.8e6ca764.css.map": "/static/css/main.8e6ca764.css.map",
+    "main.145dc789.js.map": "/static/js/main.145dc789.js.map",
+    "488.2c2c4401.chunk.js.map": "/static/js/488.2c2c4401.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8e6ca764.css",
+    "static/js/main.145dc789.js"
+  ]
+}
