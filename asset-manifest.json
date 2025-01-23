@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/React-citycompass/static/css/main.42bede6e.css",
-    "main.js": "/React-citycompass/static/js/main.bf77dc4b.js",
+    "main.js": "/React-citycompass/static/js/main.122149ce.js",
     "static/js/488.2c2c4401.chunk.js": "/React-citycompass/static/js/488.2c2c4401.chunk.js",
     "static/media/animate-bg.mp4": "/React-citycompass/static/media/animate-bg.ecac8e59b55647886a81.mp4",
     "static/media/4-slide.png": "/React-citycompass/static/media/4-slide.993da7a850cbb51b5667.png",
@@ -29,11 +29,11 @@
     "static/media/Arrow 5.svg": "/React-citycompass/static/media/Arrow 5.e118ef6e9ab259a4317a1ca2168e56c4.svg",
     "static/media/vk logo.svg": "/React-citycompass/static/media/vk logo.4b8b1be78709ac35bfbd3e6e8f4c6799.svg",
     "main.42bede6e.css.map": "/React-citycompass/static/css/main.42bede6e.css.map",
-    "main.bf77dc4b.js.map": "/React-citycompass/static/js/main.bf77dc4b.js.map",
+    "main.122149ce.js.map": "/React-citycompass/static/js/main.122149ce.js.map",
     "488.2c2c4401.chunk.js.map": "/React-citycompass/static/js/488.2c2c4401.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.42bede6e.css",
-    "static/js/main.bf77dc4b.js"
+    "static/js/main.122149ce.js"
   ]
 }
