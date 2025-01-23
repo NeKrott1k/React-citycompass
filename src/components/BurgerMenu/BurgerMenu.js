@@ -9,13 +9,15 @@ const BurgerMenu = () => {
     <div className={`menu-burger ${isMenuOpen ? "active" : ""}`} id="menu">
       <div className="menu-burger__points">
         <div className="menu-burger__li">
-          <NavLink to="/attractions">список интересных мест</NavLink>
+          <NavLink to="/React-citycompass/attractions">
+            список интересных мест
+          </NavLink>
         </div>
         <div className="menu-burger__li">
-          <NavLink to="/">главная</NavLink>
+          <NavLink to="/React-citycompass/">главная</NavLink>
         </div>
         <div className="menu-burger__li">
-          <NavLink to="/contacts">контакты</NavLink>
+          <NavLink to="/React-citycompass/contacts">контакты</NavLink>
         </div>
       </div>
     </div>

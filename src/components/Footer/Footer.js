@@ -10,13 +10,15 @@ const Footer = () => {
       <div className="footer__content">
         <div className="footer__points">
           <p className="footer__point">
-            <NavLink to="/">главная</NavLink>
+            <NavLink to="/React-citycompass/">главная</NavLink>
           </p>
           <p className="footer__point">
-            <NavLink to="/attractions">список интересных мест</NavLink>
+            <NavLink to="/React-citycompass/attractions">
+              список интересных мест
+            </NavLink>
           </p>
           <p className="footer__point">
-            <NavLink to="/contacts">контакты</NavLink>
+            <NavLink to="/React-citycompass/contacts">контакты</NavLink>
           </p>
         </div>
       </div>

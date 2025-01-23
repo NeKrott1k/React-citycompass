@@ -50,7 +50,7 @@ const Attractions = () => {
   })
 
   const handleCardClick = (id) => {
-    navigate(`/attraction/${id}`)
+    navigate(`/React-citycompass/attraction/${id}`)
   }
 
   const handleClick = () => {

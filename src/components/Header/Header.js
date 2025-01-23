@@ -30,7 +30,7 @@ const Header = () => {
           <span></span>
           <span></span>
           <span></span>
-          <NavLink to="/">главная</NavLink>
+          <NavLink to="/React-citycompass/">главная</NavLink>
         </li>
 
         <li className="header__point">
@@ -38,7 +38,9 @@ const Header = () => {
           <span></span>
           <span></span>
           <span></span>
-          <NavLink to="/attractions">список интересных мест</NavLink>
+          <NavLink to="/React-citycompass/attractions">
+            список интересных мест
+          </NavLink>
         </li>
 
         <li className="header__point">
@@ -46,7 +48,7 @@ const Header = () => {
           <span></span>
           <span></span>
           <span></span>
-          <NavLink to="/contacts">контакты</NavLink>
+          <NavLink to="/React-citycompass/contacts">контакты</NavLink>
         </li>
       </div>
     </header>

@@ -21,10 +21,16 @@ export default function App() {
           <BurgerMenu />
           <ScrollToTop />
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/attractions" element={<Attractions />} />
-            <Route path="/attraction/:id" element={<AttractionDop />} />
-            <Route path="/contacts" element={<Contacts />} />
+            <Route path="/React-citycompass/" element={<Home />} />
+            <Route
+              path="/React-citycompass/attractions"
+              element={<Attractions />}
+            />
+            <Route
+              path="/React-citycompass/attraction/:id"
+              element={<AttractionDop />}
+            />
+            <Route path="/React-citycompass/contacts" element={<Contacts />} />
           </Routes>
 
           <Footer />
