@@ -88,7 +88,10 @@ const Home = () => {
           </p>
         </div>
 
-        <NavLink className="first-screen__button" to="/attractions">
+        <NavLink
+          className="first-screen__button"
+          to="/React-citycompass/attractions"
+        >
           <span>Подробнее</span>
           <div className="first-screen__liquid"></div>
         </NavLink>
