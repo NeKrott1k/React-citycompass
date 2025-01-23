@@ -226,7 +226,7 @@ const Attraction_dop = () => {
   return (
     <>
       <section className="attraction">
-        <NavLink to="/attractions">
+        <NavLink to="/React-citycompass/attractions">
           <div className="attraction__button">
             <p className="attraction__btn">На главную</p>
             <img src={arrow} alt="" />
